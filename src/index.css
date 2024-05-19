@@ -87,6 +87,7 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
 .layout {
   max-width: 1200px;
   min-width: 800px;

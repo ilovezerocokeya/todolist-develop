@@ -1,6 +1,13 @@
+/* eslint-disable no-unreachable */
+
+
 const Layout = ({ children }) => {
 
-  return <main className="layout"> {children} </main>
+  return (
+    <main className="layout">
+   {children} 
+   </main>
+  )
 };
 
-export default Layout
+export default Layout;
