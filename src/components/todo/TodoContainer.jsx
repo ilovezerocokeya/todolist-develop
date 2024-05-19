@@ -3,25 +3,31 @@ import TodoForm from "./TodoForm"
 import { useState } from "react";
 
 const TodoContainer = () => {
-    const [todo, setTodos] = useState ([
+    const [todos, setTodos] = useState ([
         {
             id: 1,
             title: "할 일1",
-            content: "할 일 1 내용",
+            content: "할 일1 내용",
             isDone: false,
+        },
+        {
+            id: 2,
+            title: "할 일2",
+            content: "할 일2 내용",
+            isDone: true,
         },
     ]);
 
-
+    const workingTodos = todos.filter((todo) => !todo.isDone);
+    const doneTodos = todos.filter((todo) => todo.isDone);
   return (
-    <div>
+    <section>
+        <h1 className="title">Todo List</h1>
       <TodoForm setTodos={setTodos}/>
-      <div>
-        <TodoList />
-        <TodoList />
-      </div>
-    </div>
-  )
-}
+      <TodoList title="Working" todos={workingTodos} />
+      <TodoList title="Done" todos={doneTodos} />
+    </section>
+  );
+};
 
 export default TodoContainer;

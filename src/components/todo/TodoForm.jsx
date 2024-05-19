@@ -4,22 +4,23 @@ const TodoForm = ({setTodos}) => {
         e.preventDefault();
        
         const formData = new FormData(e.target);
-        const title = formData.get("titles");
+        const title = formData.get("title");
         const content = formData.get("content");
 
         if (!title.trim() || !content.trim())  
             return alert("제목과 내용을 입력해주세요");
 
-        const crypto = window.crypto || window.msCrypto;
         const nextTodo = {
             id: crypto.randomUUID(),
             title,
             content,
-            isDone: false
+            isDone: false,
         };
 
         
         setTodos((prevTodos) => [nextTodo, ...prevTodos]);
+
+        e.target.reset();
     };
 
 
